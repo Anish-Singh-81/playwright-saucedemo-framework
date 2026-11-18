@@ -5,7 +5,6 @@ test('TC00 - application is reachable @smoke', async ({ page }) => {
 
   await expect(page).toHaveURL('https://sauce-demo.myshopify.com/');
   await expect(page).toHaveTitle(/Sauce Demo/i);
-  console.log('Anish');
   await page.title();
   await page.url();
   await page.screenshot({ path: 'home.png' })
