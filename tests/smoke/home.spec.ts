@@ -1,10 +1,8 @@
-import { test, expect } from '@playwright/test';
-import { HomePage } from '../../pages/HomePage';
+import { test, expect } from '../../fixtures/pageFixtures';
 
 test.describe('Home page', () => {
 
-  test('TC01 - home page shows logo, header links and featured products @smoke', async ({ page }) => {
-    const homePage = new HomePage(page);
+  test('TC01 - home page shows logo, header links and featured products @smoke', async ({ homePage }) => {
     await homePage.goto();
 
     await expect(homePage.logo).toBeVisible();
@@ -19,8 +17,7 @@ test.describe('Home page', () => {
     }
   });
 
-  test('TC01b - Catalog link opens the product catalog @smoke', async ({ page }) => {
-    const homePage = new HomePage(page);
+  test('TC01b - Catalog link opens the product catalog @smoke', async ({ homePage, page }) => {
     await homePage.goto();
 
     await homePage.goToCatalog();
