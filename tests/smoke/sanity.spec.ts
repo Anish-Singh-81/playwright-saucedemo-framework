@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../../fixtures/pageFixtures';
 
 test('TC00 - application is reachable @smoke', async ({ page }) => {
   await page.goto('/');
