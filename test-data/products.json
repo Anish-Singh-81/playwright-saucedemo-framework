@@ -1,0 +1,5 @@
+[
+  { "name": "Grey jacket", "slug": "grey-jacket", "price": 55.00 },
+  { "name": "Noir jacket", "slug": "noir-jacket", "price": 60.00 },
+  { "name": "Striped top", "slug": "striped-top", "price": 50.00 }
+]

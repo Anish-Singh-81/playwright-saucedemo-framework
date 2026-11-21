@@ -42,4 +42,12 @@ export abstract class BasePage {
     const match = text.match(/\((\d+)\)/);
     return match ? Number(match[1]) : 0;
   }
+
+    productLink(productName: string): Locator {
+    return this.page.getByRole('link').filter({ hasText: productName }).first();
+  }
+
+  async openProduct(productName: string): Promise<void> {
+    await this.productLink(productName).click();
+  }
 }
