@@ -10,16 +10,31 @@ export default defineConfig({
   expect: { timeout: 5_000 },   // max time for one assertion
 
   reporter: [
-    ['html', { open: 'never' }],
-    ['list'],
-  ],
+  ['list'],
+  ['html', { open: 'never' }],
+  ['allure-playwright', {
+    resultsDir: 'allure-results',
+    environmentInfo: {
+      Application: 'Sauce Demo (Shopify)',
+      URL: 'https://sauce-demo.myshopify.com',
+      Browser: 'Chromium',
+      Environment: 'Production demo store',
+    },
+  }],
+],
 
   use: {
     baseURL: 'https://sauce-demo.myshopify.com',
-    trace: 'on-first-retry',
+    //trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     actionTimeout: 10_000,      // max time for one click / fill
+    trace: 'retain-on-failure',
+    launchOptions: {
+  slowMo: Number(process.env.SLOWMO ?? 0),
+  
+},
+
   },
 
   projects: [
