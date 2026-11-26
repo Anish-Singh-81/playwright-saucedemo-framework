@@ -12,9 +12,11 @@
     "test:e2e": "playwright test --grep @e2e",
     "report": "playwright show-report",
     "test:watch": "playwright test --headed --workers=1",
-    "test:debug": "playwright test --debug","allure:clean": "rm -rf allure-results allure-report",
-"allure:generate": "allure generate ./allure-results",
-"allure:open": "allure open ./allure-report"
+    "test:debug": "playwright test --debug",
+    "allure:clean": "rm -rf allure-results allure-report",
+    "allure:generate": "allure generate ./allure-results",
+    "allure:open": "allure open ./allure-report",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +28,7 @@
     "@types/node": "^26.6.6",
     "allure": "^3.33.0",
     "allure-js-commons": "^3.15.0",
-    "allure-playwright": "^3.15.0"
+    "allure-playwright": "^3.15.0",
+    "typescript": "^7.0.2"
   }
 }
