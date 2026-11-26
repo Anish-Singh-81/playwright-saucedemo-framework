@@ -17,7 +17,7 @@ export abstract class BasePage {
     this.catalogLink = page.getByRole('link', { name: 'Catalog', exact: true });
     this.loginLink = page.getByRole('link', { name: 'Log In', exact: true });
     this.signupLink = page.getByRole('link', { name: 'Sign up', exact: true });
-    this.cartLink = page.locator('a[href$="/cart"]').filter({ hasText: 'My Cart' });
+    this.cartLink = page.getByRole('link', { name: /My Cart/ });
     this.checkoutLink = page.getByRole('link', { name: 'Check Out', exact: true });
   }
 
@@ -33,8 +33,8 @@ export abstract class BasePage {
     await this.loginLink.click();
   }
 
-  async goToCart(): Promise<void> {
-    await this.cartLink.click();
+    async goToCart(): Promise<void> {
+    await this.checkoutLink.click();
   }
 
   async getCartCount(): Promise<number> {

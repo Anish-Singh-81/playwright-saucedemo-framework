@@ -29,7 +29,11 @@ export class ProductPage extends BasePage {
     await this.quantityInput.fill(String(quantity));
   }
 
-  async addToCart(): Promise<void> {
+    async addToCart(): Promise<void> {
+    const cartUpdated = this.page.waitForResponse(
+      (response) => response.url().includes('/cart/add') && response.ok(),
+    );
     await this.addToCartButton.click();
+    await cartUpdated;
   }
 }
